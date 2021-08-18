@@ -573,10 +573,15 @@ copy.forEach(function (copyItem) {
       container.appendChild(btn);
 
       btn.addEventListener("click", function () {
-        var darkmodeIsActive = false;
-        document.body.style.backgroundColor = "black";
-        container.style.cssText = "background-color:#777;color:white";
-        btn.style.cssText =
-          "color:black;background-color:white;padding:15px;width:115px";
+        if (darkmodeIsActive) {
+          document.body.style.backgroundColor = "white";
+          darkmodeIsActive = false;
+        } else {
+          document.body.style.backgroundColor = "black";
+          container.style.cssText = "background-color:#777;color:white";
+          btn.style.cssText =
+            "color:black;background-color:white;padding:15px;width:115px";
+          darkmodeIsActive = true;
+        }
       });
 
