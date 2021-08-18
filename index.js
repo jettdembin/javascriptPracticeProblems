@@ -575,13 +575,19 @@ copy.forEach(function (copyItem) {
       btn.addEventListener("click", function () {
         if (darkmodeIsActive) {
           document.body.style.backgroundColor = "white";
+          container.style.cssText = "background-color:red;color:white";
+          btn.style.cssText =
+            "background-color:black;color:white;padding:15px;width:115px";
+          btn.innerText = "enable dark mode";
           darkmodeIsActive = false;
         } else {
           document.body.style.backgroundColor = "black";
           container.style.cssText = "background-color:#777;color:white";
           btn.style.cssText =
-            "color:black;background-color:white;padding:15px;width:115px";
+            "color:black;background-color:white;padding:15px;width:120px";
+          btn.innerText = "disable dark mode";
           darkmodeIsActive = true;
+        }
         }
       });
 
