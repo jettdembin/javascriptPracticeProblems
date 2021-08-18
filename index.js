@@ -549,5 +549,34 @@ var copy = [
                 HINT #2: use this for an if statement inside your event listener
                 HINT #3: change the button text as well, depending on the state
         */
+copy.forEach(function (copyItem) {
+        var pItem = document.createElement("p");
+        pItem.innerHTML = copyItem;
+        container.appendChild(pItem);
+      });
 
+      var btn = document.createElement("div");
+      btn.innerText = "enable dark mode";
+      /*btn.style.cssText =
+        "background-color:black;color:white;width:115px;pointer:cursor";
+      */
+      var styles = {
+        padding: "15px",
+        border: "none",
+        background: "black",
+        color: "white",
+        width: "115px",
+      };
+      for (var key in styles) {
+        btn.style[key] = styles[key];
+      }
+      container.appendChild(btn);
+
+      btn.addEventListener("click", function () {
+        var darkmodeIsActive = false;
+        document.body.style.backgroundColor = "black";
+        container.style.cssText = "background-color:#777;color:white";
+        btn.style.cssText =
+          "color:black;background-color:white;padding:15px;width:115px";
+      });
 
