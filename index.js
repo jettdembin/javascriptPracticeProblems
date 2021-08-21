@@ -590,4 +590,81 @@ copy.forEach(function (copyItem) {
           darkmodeIsActive = true;
         }
       });
+/* THIS IS A sIMPLE TAB SELECTOR WITH HTML, JS, AND CSS IN ONE FILE */
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .container {
+        border: 1px solid grey;
+      }
+      .selector {
+        display: flex;
+        background: lightgrey;
+      }
+      .tab {
+        padding: 1rem;
+      }
+      .tab:hover {
+        background: grey;
+        cursor: pointer;
+      }
+      .content {
+        margin-left: 1rem;
+      }
+      .content-body {
+        display: none;
+      }
+      .show-active {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="selector">
+        <div class="tab tab-active">Shirts</div>
+        <div class="tab">Pants</div>
+        <div class="tab">Shoes</div>
+      </div>
+      <div class="content">
+        <div id="Shirts" class="content-body show-active">
+          <h4>Shirts</h4>
+          <p>We got the shirts</p>
+        </div>
+        <div id="Pants" class="content-body">
+          <h4>Pants</h4>
+          <p>We got the pants</p>
+        </div>
+        <div id="Shoes" class="content-body">
+          <h4>Shoes</h4>
+          <p>We got the shoes</p>
+        </div>
+      </div>
+    </div>
+    <script>
+      function setNewActive(el) {
+        var contentBodies = document.getElementsByClassName("content-body");
+        for (var contentBody of contentBodies) {
+          contentBody.classList.remove("show-active");
+        }
+        document
+          .getElementById(el.textContent.trim())
+          .classList.add("show-active");
+      }
+      var tabs = document.getElementsByClassName("tab");
+      for (var tab of tabs) {
+        tab.addEventListener("click", function (e) {
+          setNewActive(e.currentTarget);
+        });
+      }
+    </script>
+  </body>
+</html>
+
+
 
